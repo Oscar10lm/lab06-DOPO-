@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Forest
+comment0.text=No\ olviden\ adicionar\ la\ documentacion
+comment1.params=
+comment1.target=Forest()
+comment10.params=
+comment10.target=void\ ticTac()
+comment2.params=empty
+comment2.target=Forest(boolean)
+comment2.text=\r\n\ Constructor\ alternativo\r\n
+comment3.params=
+comment3.target=int\ getSize()
+comment4.params=r\ c
+comment4.target=Thing\ getThing(int,\ int)
+comment5.params=r\ c\ e
+comment5.target=void\ setThing(int,\ int,\ Thing)
+comment6.params=
+comment6.target=void\ someThings()
+comment7.params=r\ c
+comment7.target=int\ neighborsEquals(int,\ int)
+comment8.params=r\ c
+comment8.target=boolean\ isEmpty(int,\ int)
+comment9.params=r\ c
+comment9.target=boolean\ inForest(int,\ int)
+numComments=11

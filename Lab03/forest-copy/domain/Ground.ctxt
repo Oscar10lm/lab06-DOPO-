@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Ground
+comment0.text=\r\n\ Representa\ una\ celda\ de\ tierra\ en\ el\ bosque\ del\ simulador\ Forest\ Fire.\r\n\ Es\ el\ elemento\ base\ del\ ecosistema\ \u2014\ cuando\ otros\ elementos\ mueren\r\n\ o\ se\ transforman\ dejan\ tierra\ en\ su\ lugar.\ Puede\ generar\ fuego\ con\r\n\ una\ probabilidad\ del\ 10%\ o\ agua\ con\ una\ probabilidad\ del\ 5%\ en\ cada\r\n\ ciclo.\ No\ es\ un\ ser\ vivo\ \u2014\ implementa\ Thing\ directamente.\r\n\r\n\ @author\ Lasso\ -\ Gaitan\r\n\ @version\ 1.0\r\n
+comment1.params=forest\ row\ column
+comment1.target=Ground(Forest,\ int,\ int)
+comment1.text=\r\n\ Crea\ una\ nueva\ celda\ de\ tierra\ en\ la\ posici\u00F3n\ (row,\ column).\r\n\ Se\ registra\ autom\u00E1ticamente\ en\ el\ bosque\ al\ crearse.\r\n\ @param\ forest\ bosque\ al\ que\ pertenece\r\n\ @param\ row\ \ \ \ fila\ de\ la\ posici\u00F3n\r\n\ @param\ column\ columna\ de\ la\ posici\u00F3n\r\n
+comment2.params=
+comment2.target=java.awt.Color\ getColor()
+comment2.text=\r\n\ Retorna\ el\ color\ de\ la\ tierra\ \u2014\ caf\u00E9.\r\n\ @return\ Color(139,\ 90,\ 43)\r\n
+comment3.params=
+comment3.target=int\ shape()
+comment3.text=\r\n\ Retorna\ la\ forma\ de\ la\ tierra\ \u2014\ cuadrada.\r\n\ @return\ Thing.SQUARE\r\n
+comment4.params=
+comment4.target=boolean\ isLivingThing()
+comment4.text=\r\n\ Indica\ que\ la\ tierra\ no\ es\ un\ ser\ vivo.\r\n\ @return\ false\r\n
+comment5.params=
+comment5.target=void\ ticTac()
+comment5.text=\r\n\ Ejecuta\ el\ comportamiento\ de\ la\ tierra\ en\ cada\ ciclo.\r\n\ Con\ probabilidad\ del\ 10%\ genera\ fuego\ en\ su\ celda.\r\n\ Con\ probabilidad\ del\ 5%\ genera\ agua\ en\ su\ celda.\r\n\ En\ ambos\ casos\ la\ tierra\ desaparece\ y\ es\ reemplazada\r\n\ por\ el\ nuevo\ elemento.\ Con\ el\ 85%\ restante\ no\ hace\ nada.\r\n
+numComments=6
