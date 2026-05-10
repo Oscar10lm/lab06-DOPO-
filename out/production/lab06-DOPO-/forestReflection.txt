@@ -1,0 +1,7 @@
+Tree 1 1
+FireTree 2 2
+Squirrel 3 3
+RainTree 4 4
+Fire 5 5
+Water 6 6
+Ground 7 7

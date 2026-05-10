@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=RainTree
+comment0.text=\r\n\ Representa\ un\ \u00E1rbol\ de\ lluvia\ en\ el\ bosque.\ Es\ un\ tipo\ especial\r\n\ de\ \u00E1rbol\ que\ tiene\ color\ azul\ que\ se\ intensifica\ con\ el\ tiempo,\r\n\ vive\ el\ doble\ que\ un\ \u00E1rbol\ normal\ (energ\u00EDa\ 200),\ riega\ sus\ vecinos\r\n\ cada\ dos\ ciclos\ generando\ nuevos\ \u00E1rboles\ en\ celdas\ vac\u00EDas\ adyacentes,\r\n\ y\ se\ pinta\ como\ un\ cuadrado\ para\ diferenciarse\ visualmente\ del\ Tree\ normal.\r\n\r\n\ @author\ Lasso\ -\ Gaitan\r\n\ @version\ 1.0\r\n
+comment1.params=forest\ row\ column
+comment1.target=RainTree(Forest,\ int,\ int)
+comment1.text=\r\n\ Crea\ un\ nuevo\ RainTree\ en\ la\ posici\u00F3n\ (row,\ column)\ del\ bosque.\r\n\ Inicia\ con\ color\ azul\ claro,\ energ\u00EDa\ 100\ y\ tictac\ en\ 0.\r\n\ Se\ registra\ autom\u00E1ticamente\ en\ el\ bosque\ al\ crearse.\r\n\ @param\ forest\ bosque\ al\ que\ pertenece\r\n\ @param\ row\ \ \ \ fila\ de\ la\ posici\u00F3n\ inicial\r\n\ @param\ column\ columna\ de\ la\ posici\u00F3n\ inicial\r\n
+comment2.params=
+comment2.target=int\ shape()
+comment2.text=\r\n\ Retorna\ la\ forma\ del\ RainTree\ \u2014\ cuadrada,\ a\ diferencia\r\n\ del\ Tree\ normal\ que\ es\ redondo.\r\n\ @return\ Thing.SQUARE\r\n
+comment3.params=
+comment3.target=java.awt.Color\ getColor()
+comment3.text=\r\n\ Retorna\ el\ color\ actual\ del\ RainTree\ \u2014\ azul\ que\ se\ intensifica\r\n\ progresivamente\ con\ cada\ par\ de\ ciclos.\r\n\ @return\ color\ azul\ actual\r\n
+comment4.params=
+comment4.target=void\ updateColor()
+comment4.text=\r\n\ Actualiza\ el\ color\ del\ RainTree\ intensificando\ el\ azul\ cada\r\n\ dos\ ciclos.\ Los\ componentes\ R\ y\ G\ disminuyen\ progresivamente\r\n\ mientras\ B\ se\ mantiene\ constante\ en\ 230.\r\n\ El\ m\u00E1ximo\ de\ intensidad\ se\ alcanza\ en\ 20\ pasos.\r\n
+comment5.params=
+comment5.target=void\ water()
+comment5.text=\r\n\ Intenta\ regar\ un\ vecino\ generando\ un\ nuevo\ Tree\ b\u00E1sico\ en\ la\r\n\ primera\ celda\ vac\u00EDa\ adyacente\ encontrada\ en\ orden\ norte,\ este,\r\n\ sur,\ oeste.\ Solo\ nace\ un\ \u00E1rbol\ por\ llamada.\r\n
+comment6.params=
+comment6.target=void\ ticTac()
+comment6.text=\r\n\ Ejecuta\ el\ comportamiento\ del\ RainTree\ en\ cada\ ciclo\:\r\n\ 1.\ Incrementa\ tictac\ y\ actualiza\ el\ color\ azul.\r\n\ 2.\ Consume\ energ\u00EDa\ via\ step()\ \u2014\ muere\ si\ se\ agota.\r\n\ 3.\ Cada\ 2\ ciclos\ riega\ una\ celda\ vac\u00EDa\ adyacente.\r\n\ 4.\ Cada\ 4\ ciclos\ (tictac%4\=\=1)\ incrementa\ los\ a\u00F1os.\r\n
+numComments=7

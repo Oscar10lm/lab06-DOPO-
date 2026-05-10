@@ -368,4 +368,128 @@ public class Forest implements Serializable {
             throw new ForestException(ForestException.ERROR_EXPORTAR);
         }
     }
+    /**
+     * Importa la configuración de un bosque leyendo un archivo de texto.
+     * Versión 02: Funciona como un minicompilador con errores detallados.
+     */
+    public Forest import02(File file) throws ForestException {
+        if (!file.exists()) throw new ForestException(ForestException.ARCHIVO_NO_ENCONTRADO);
+        if (file.isDirectory()) throw new ForestException(ForestException.ARCHIVO_ES_DIRECTORIO);
+        if (!file.getName().endsWith(".txt")) throw new ForestException(ForestException.EXTENSION_INVALIDA_TXT);
+
+        try (java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(file))) {
+            Forest loadedForest = new Forest(true); 
+            String line;
+            int numLinea = 0;
+            while ((line = in.readLine()) != null) {
+                numLinea++;
+                line = line.trim();
+                if (line.isEmpty()) continue;
+                
+                String[] parts = line.split("[,\\s]+");
+                if (parts.length < 3) {
+                    throw new ForestParseException(numLinea, line, "Faltan datos en la instrucción. Se esperaba: Tipo fila columna");
+                }
+                
+                String tipo = parts[0];
+                int r, c;
+                try {
+                    r = Integer.parseInt(parts[1]);
+                } catch (NumberFormatException e) {
+                    throw new ForestParseException(numLinea, parts[1], "La coordenada de la fila debe ser un número entero válido.");
+                }
+                try {
+                    c = Integer.parseInt(parts[2]);
+                } catch (NumberFormatException e) {
+                    throw new ForestParseException(numLinea, parts[2], "La coordenada de la columna debe ser un número entero válido.");
+                }
+                
+                switch(tipo) {
+                    case "Tree": new Tree(loadedForest, r, c); break;
+                    case "FireTree": new FireTree(loadedForest, r, c); break;
+                    case "RainTree": new RainTree(loadedForest, r, c); break;
+                    case "Squirrel": new Squirrel(loadedForest, r, c); break;
+                    case "Fire": new Fire(loadedForest, r, c); break;
+                    case "Water": new Water(loadedForest, r, c); break;
+                    case "Ground": new Ground(loadedForest, r, c); break;
+                    default:
+                        throw new ForestParseException(numLinea, tipo, "Palabra reservada o tipo de elemento desconocido en el dominio.");
+                }
+            }
+            return loadedForest;
+        } catch (ForestException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new ForestException(ForestException.ERROR_IMPORTAR);
+        }
+    }
+
+    /**
+     * Exporta el estado del bosque a un archivo de texto.
+     * Versión 02
+     */
+    public void exportAs02(File file) throws ForestException {
+        exportAs(file);
+    }
+
+    /**
+     * Importa la configuración de un bosque leyendo un archivo de texto.
+     * Versión 03: Minicompilador Flexible usando API de Reflection de Java.
+     */
+    public Forest import03(File file) throws ForestException {
+        if (!file.exists()) throw new ForestException(ForestException.ARCHIVO_NO_ENCONTRADO);
+        if (file.isDirectory()) throw new ForestException(ForestException.ARCHIVO_ES_DIRECTORIO);
+        if (!file.getName().endsWith(".txt")) throw new ForestException(ForestException.EXTENSION_INVALIDA_TXT);
+
+        try (java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(file))) {
+            Forest loadedForest = new Forest(true); 
+            String line;
+            int numLinea = 0;
+            while ((line = in.readLine()) != null) {
+                numLinea++;
+                line = line.trim();
+                if (line.isEmpty()) continue;
+                
+                String[] parts = line.split("[,\\s]+");
+                if (parts.length < 3) {
+                    throw new ForestParseException(numLinea, line, "Faltan datos en la instrucción. Se esperaba: Tipo fila columna");
+                }
+                
+                String tipo = parts[0];
+                int r, c;
+                try {
+                    r = Integer.parseInt(parts[1]);
+                    c = Integer.parseInt(parts[2]);
+                } catch (NumberFormatException e) {
+                    throw new ForestParseException(numLinea, parts[1] + " " + parts[2], "Las coordenadas deben ser números enteros.");
+                }
+                
+                try {
+                    // API de Reflection: Instanciación dinámica
+                    Class<?> clazz = Class.forName("domain." + tipo);
+                    java.lang.reflect.Constructor<?> constructor = clazz.getConstructor(Forest.class, int.class, int.class);
+                    constructor.newInstance(loadedForest, r, c);
+                } catch (ClassNotFoundException e) {
+                    throw new ForestParseException(numLinea, tipo, "Clase no encontrada en el dominio mediante Reflection. Tipo no soportado.");
+                } catch (NoSuchMethodException e) {
+                    throw new ForestParseException(numLinea, tipo, "La clase no tiene un constructor (Forest, int, int).");
+                } catch (Exception e) {
+                    throw new ForestParseException(numLinea, tipo, "Error al instanciar el elemento vía Reflection: " + e.getMessage());
+                }
+            }
+            return loadedForest;
+        } catch (ForestException e) {
+            throw e; // Lanzar las excepciones parseadas hacia arriba
+        } catch (Exception e) {
+            throw new ForestException(ForestException.ERROR_IMPORTAR);
+        }
+    }
+
+    /**
+     * Exporta el estado del bosque a un archivo de texto.
+     * Versión 03
+     */
+    public void exportAs03(File file) throws ForestException {
+        exportAs(file);
+    }
 }

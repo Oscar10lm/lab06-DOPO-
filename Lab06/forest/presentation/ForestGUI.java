@@ -167,7 +167,7 @@ public class ForestGUI extends JFrame {
         JFileChooser fileChooser = new JFileChooser();
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
-                theForest = theForest.importFile(fileChooser.getSelectedFile());
+                theForest = theForest.import03(fileChooser.getSelectedFile());
                 photo.repaint();
             } catch (ForestException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

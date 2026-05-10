@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=LivingThing
+comment0.text=\r\n\ Clase\ abstracta\ que\ representa\ un\ ser\ vivo\ en\ el\ bosque.\r\n\ Define\ el\ modelo\ de\ energ\u00EDa\ y\ envejecimiento\ compartido\ por\r\n\ todos\ los\ seres\ vivos.\ Sus\ m\u00E9todos\ finales\ garantizan\ que\r\n\ ninguna\ subclase\ pueda\ alterar\ las\ reglas\ de\ vida\ y\ muerte.\r\n\r\n\ @author\ Lasso\ -\ Gaitan\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=LivingThing()
+comment1.text=\r\n\ Crea\ un\ nuevo\ LivingThing\ con\ energ\u00EDa\ inicial\ de\ 100\r\n\ y\ a\u00F1os\ en\ 0.\r\n
+comment2.params=initialEnergy
+comment2.target=LivingThing(int)
+comment2.text=\r\n\ Crea\ un\ nuevo\ LivingThing\ con\ energ\u00EDa\ inicial\ personalizada\r\n\ y\ a\u00F1os\ en\ 0.\ \u00DAtil\ para\ seres\ vivos\ con\ ciclo\ de\ vida\ distinto\r\n\ al\ est\u00E1ndar,\ como\ RainTree\ que\ inicia\ con\ 200\ de\ energ\u00EDa.\r\n\ @param\ initialEnergy\ energ\u00EDa\ inicial\ del\ ser\ vivo\r\n
+comment3.params=
+comment3.target=boolean\ step()
+comment3.text=\r\n\ Descuenta\ una\ unidad\ de\ energ\u00EDa\ si\ el\ ser\ vivo\ a\u00FAn\ tiene.\r\n\ Representa\ el\ costo\ de\ existir\ un\ ciclo\ m\u00E1s.\r\n\ No\ puede\ ser\ sobreescrito\ \u2014\ todas\ las\ subclases\ comparten\r\n\ el\ mismo\ modelo\ de\ consumo\ de\ energ\u00EDa.\r\n\ @return\ true\ si\ ten\u00EDa\ energ\u00EDa\ y\ pudo\ dar\ el\ paso,\r\n\ \ \ \ \ \ \ \ \ false\ si\ la\ energ\u00EDa\ era\ 0\ y\ debe\ morir\r\n
+comment4.params=
+comment4.target=void\ restore()
+comment4.text=\r\n\ Restaura\ la\ energ\u00EDa\ del\ ser\ vivo\ al\ 100%.\r\n\ Se\ usa\ cuando\ un\ \u00E1rbol\ es\ alimentado\ por\ una\ fuente\ de\ agua.\r\n\ No\ puede\ ser\ sobreescrito\ para\ garantizar\ consistencia.\r\n
+comment5.params=
+comment5.target=int\ getEnergy()
+comment5.text=\r\n\ Retorna\ la\ energ\u00EDa\ actual\ del\ ser\ vivo.\r\n\ No\ puede\ ser\ sobreescrito\ para\ evitar\ que\ subclases\r\n\ falseen\ su\ estado\ de\ energ\u00EDa.\r\n\ @return\ valor\ actual\ de\ energy\r\n
+comment6.params=
+comment6.target=boolean\ isLivingThing()
+comment6.text=\r\n\ Indica\ que\ este\ objeto\ es\ un\ ser\ vivo.\r\n\ No\ puede\ ser\ sobreescrito\ \u2014\ todo\ LivingThing\ es\ siempre\r\n\ un\ ser\ vivo\ sin\ excepci\u00F3n.\r\n\ @return\ true\ siempre\r\n
+numComments=7

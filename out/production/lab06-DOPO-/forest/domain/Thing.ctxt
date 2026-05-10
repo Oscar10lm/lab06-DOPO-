@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Thing
+comment0.text=\r\n\ Interfaz\ que\ define\ el\ contrato\ de\ cualquier\ objeto\ que\ pueda\r\n\ existir\ en\ el\ bosque\ (Forest).\ Todo\ Thing\ puede\ actuar\ (ticTac),\r\n\ tiene\ una\ forma,\ un\ color\ y\ puede\ indicar\ si\ es\ un\ ser\ vivo.\r\n\r\n\ @author\ Lasso\ -\ Gaitan\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=void\ ticTac()
+comment1.text=\r\n\ Define\ el\ comportamiento\ del\ objeto\ en\ cada\ ciclo\ del\ simulador.\r\n\ Toda\ clase\ concreta\ que\ implemente\ Thing\ debe\ proveer\ su\ propia\r\n\ implementaci\u00F3n\ de\ este\ m\u00E9todo.\r\n
+comment2.params=
+comment2.target=int\ shape()
+comment2.text=\r\n\ Retorna\ la\ forma\ del\ objeto.\r\n\ Por\ defecto\ retorna\ SQUARE.\r\n\ @return\ SQUARE\ o\ ROUND\r\n
+comment3.params=
+comment3.target=java.awt.Color\ getColor()
+comment3.text=\r\n\ Retorna\ el\ color\ con\ el\ que\ se\ pinta\ el\ objeto\ en\ la\ GUI.\r\n\ Por\ defecto\ retorna\ Color.black.\r\n\ @return\ Color\ del\ objeto\r\n
+comment4.params=
+comment4.target=boolean\ isOnlyThing()
+comment4.text=\r\n\ Indica\ si\ el\ objeto\ es\ el\ \u00FAnico\ en\ su\ celda.\r\n\ Por\ defecto\ retorna\ true.\r\n\ @return\ true\ si\ es\ el\ \u00FAnico\ Thing\ en\ su\ celda\r\n
+comment5.params=
+comment5.target=boolean\ isLivingThing()
+comment5.text=\r\n\ Indica\ si\ el\ objeto\ es\ un\ ser\ vivo\ (LivingThing).\r\n\ Por\ defecto\ retorna\ false.\r\n\ @return\ true\ si\ el\ objeto\ extiende\ LivingThing\r\n
+numComments=6
